@@ -1,2 +1,3 @@
-# runnerwitch
-Endless runner game coded 100% in JavaScript using p5.js
+# The adventures of Hipsta, the hipster witch
+This endless runner game was made 100% in JavaScript, using P5.js. 
+Play here: https://ami-onodera.github.io/runnerwitch
