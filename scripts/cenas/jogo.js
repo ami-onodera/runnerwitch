@@ -5,7 +5,6 @@ class Jogo {
 
   setup() {
     cenario = new Cenario(imagemCenario, 3);
-    somDoJogo.loop();
     pontuacao = new Pontuacao();
     vida = new Vida(3, 3)
 
