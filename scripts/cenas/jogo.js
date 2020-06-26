@@ -5,9 +5,8 @@ class Jogo {
   }
 
   setup() {
-    // cenario = new Cenario(imagemCenario, 3);
-    
-    // PAralax
+        
+    // Parallax
     cenario_1 = new Cenario(imagemCena_1, 1);
     cenario_2 = new Cenario(imagemCena_2, 1.5);
     cenario_3 = new Cenario(imagemCena_3, 2);
@@ -16,11 +15,11 @@ class Jogo {
     cenario_6 = new Cenario(imagemCena_6, 3);
 
 
-    // Fim Paralax
+    // end Parallax
     
     
     pontuacao = new Pontuacao();
-    vida = new Vida(3, 3)
+    vida = new Vida(5, 5)
 
     personagem = new Personagem(matrizPersonagem, imagemPersonagem, 100, 30, 110, 125, 220, 270);
 
@@ -30,12 +29,14 @@ class Jogo {
     
     const inimigoSegundo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 500);
     const inimigoTerceiro = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 3000);
+    const inimigoQuarto = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 300, 100, 75, 200, 150, 10, 100);
 
     inimigos.push(inimigo);
     inimigos.push(inimigoGrande);
     inimigos.push(inimigoVoador);
     inimigos.push(inimigoSegundo);
     inimigos.push(inimigoTerceiro);
+    inimigos.push(inimigoQuarto);
   }
 
   keyPressed(key){
@@ -94,12 +95,20 @@ class Jogo {
     inimigo2.move();
     
     const inimigo3 = inimigos[4];
-    const inimigoVisivel3 = inimigo3.x < -inimigo2.largura;
+    const inimigoVisivel3 = inimigo3.x < -inimigo3.largura;
     
     inimigo3.velocidade = parseInt(random(15, 35));
-    inimigo3.delay = 20000;
+    inimigo3.delay = 10000;
     inimigo3.exibe();
     inimigo3.move();
+    
+    const inimigo4 = inimigos[5];
+    const inimigoVisivel4 = inimigo4.x < -inimigo4.largura;
+    
+    inimigo4.velocidade = parseInt(random(15, 35));
+    inimigo4.delay = 20500;
+    inimigo4.exibe();
+    inimigo4.move();
 
     if (personagem.estaColidindo(inimigo)) {
       vida.perdeVida();
@@ -124,6 +133,17 @@ class Jogo {
     }
     
     if (personagem.estaColidindo(inimigo3)) {
+      vida.perdeVida();
+      somColisao.play();
+      personagem.tornarInvencivel();
+      
+      if (vida.vidas === 0) {
+        gameOver(this)
+        noLoop();
+      }
+    }
+    
+    if (personagem.estaColidindo(inimigo4)) {
       vida.perdeVida();
       somColisao.play();
       personagem.tornarInvencivel();

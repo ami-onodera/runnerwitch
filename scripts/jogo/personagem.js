@@ -41,37 +41,32 @@ class Personagem extends Animacao {
       this.invencivel = false
     }, 1000)
   }
-
-  estaColidindo(inimigo) {
-
-    if (this.invencivel) {
+  
+   estaColidindo(inimigo) {
+     
+    let precisaoAlt = 0.8;
+    let precisaoLar = 0.8;
+    let precisao = 0.7;
+     
+     if (this.invencivel) {
       return false;
     }
-
-    const precisao = 0.7;
     
     // noFill();
-    // circle(this.x, 
-    //   this.y, 
-    //   this.largura * precisao, 
-    //   this.altura * precisao)
-    // circle(inimigo.x, 
-    //   inimigo.y, 
-    //   inimigo.largura * precisao, 
-    //   inimigo.altura * precisao)
+    // rect(this.x, this.y, this.largura, this.altura)
+    // circle(inimigo.x + inimigo.largura/2+15, inimigo.y + inimigo.altura/2, inimigo.largura*precisao)
 
-    const colisao = collideRectRect(
-      this.x,
-      this.y,
-      this.largura * precisao,
-      this.altura * precisao,
-      inimigo.x,
-      inimigo.y,
-      inimigo.largura * precisao,
-      inimigo.altura * precisao
+    const colisao = collideRectCircle(
+      this.x, 
+      this.y, 
+      this.largura, 
+      this.altura, 
+      inimigo.x + inimigo.largura/2+15, 
+      inimigo.y + inimigo.altura/2, 
+      inimigo.largura*precisao
     );
-
-    return colisao;
-  }
+    
+    return(colisao);
+   }
 
 }

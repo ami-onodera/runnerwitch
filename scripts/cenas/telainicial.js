@@ -17,10 +17,12 @@ class TelaInicial {
     textFont(fonteTelaInicial);
     textAlign(CENTER);
     textSize(50);
+    fill(color('#740093'));
     text('The adventures of', width / 2, height / 4);
     textSize(80);
-    text('Hipsta', width / 2, height/ 5*2)
+    text('HipstA', width / 2, height/ 5*2)
     textSize(20);
+    fill(color('#FFF'));
     text('Use arrow up to jump!', width / 2, height/ 7*5)
   }
   
