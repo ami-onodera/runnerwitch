@@ -48,7 +48,7 @@ class Personagem extends Animacao {
       return false;
     }
 
-    const precisao = .7;
+    const precisao = .9;
     
     // noFill();
     // rect(this.x, 

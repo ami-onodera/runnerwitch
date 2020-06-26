@@ -66,7 +66,9 @@ class Jogo {
 
     if (personagem.estaColidindo(inimigo)) {
       vida.perdeVida();
-      personagem.tornarInvencivel()
+      somColisao.play();
+      personagem.tornarInvencivel();
+      
       if (vida.vidas === 0) {
         gameOver(this)
         noLoop();
@@ -75,7 +77,9 @@ class Jogo {
 
     if (personagem.estaColidindo(inimigo2)) {
       vida.perdeVida();
-      personagem.tornarInvencivel()
+      somColisao.play();
+      personagem.tornarInvencivel();
+      
       if (vida.vidas === 0) {
         gameOver(this)
         noLoop();
@@ -87,12 +91,20 @@ class Jogo {
 function gameOver(that) {  
   background('rgba(0%,0%,0%,.80)');
   fill("fff");
+  
+  textAlign(CENTER);
+  textSize(30);
+  text(`You scored ${parseInt(pontuacao.pontos)} Points`,
+          width / 2,
+          height / 2 -80
+        );
+  
   image(imagemGameOver, width / 2 - 412 / 2, height / 2 - 78 / 2);
   somDoJogo.stop()
   somMorreu.play();
   that.fimDeJogo = true;
   textAlign(CENTER)
-  textSize(32);
+  textSize(30);
   text("Press ENTER to play agaiN", width / 2, height/2+150 )   
   
 }
