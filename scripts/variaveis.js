@@ -14,6 +14,8 @@ let telaInicial;
 let cenaAtual = 'telaInicial';
 let cenas;
 let botaoGerenciador;
+let imagemVida;
+let vida;
 
 let somDoJogo;
 let somDoPulo;

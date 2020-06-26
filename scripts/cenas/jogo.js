@@ -5,7 +5,9 @@ class Jogo {
 
   setup() {
     cenario = new Cenario(imagemCenario, 3);
+    somDoJogo.loop();
     pontuacao = new Pontuacao();
+    vida = new Vida(3, 3)
 
     personagem = new Personagem(matrizPersonagem, imagemPersonagem, 100, 30, 110, 125, 220, 270);
 
@@ -24,10 +26,12 @@ class Jogo {
     }
   }
 
+
   draw() {
     cenario.exibe();
     cenario.move();
 
+    vida.draw();
     pontuacao.exibe();
     pontuacao.adicionarPonto();
 
@@ -50,10 +54,13 @@ class Jogo {
 
 
     if (personagem.estaColidindo(inimigo)) {
-      somDoJogo.stop();
-      image(imagemGameOver, width / 2 - 200, height / 2 - 10);
-      noLoop();
+      vida.perdeVida();
+      personagem.tornarInvencivel()
+      if (vida.vidas === 0) {
+        image(imagemGameOver, width / 2 - 200, height / 2 - 10);
+        somDoJogo.stop();
+        noLoop();
+      }
     }
   }
-
 }
