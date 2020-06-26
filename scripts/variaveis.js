@@ -8,6 +8,7 @@ let fonteTelaInicial;
 let imagemInimigo;
 let imagemInimigoGrande;
 let imagemInimigoVoador;
+let imagemInimigoSegundo;
 
 let jogo;
 let telaInicial;

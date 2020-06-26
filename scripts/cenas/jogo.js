@@ -1,6 +1,7 @@
 class Jogo {
   constructor() {
     this.inimigoAtual = 0;
+    this.fimDeJogo = false;
   }
 
   setup() {
@@ -13,17 +14,22 @@ class Jogo {
     const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 100);
     const inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 100);
     const inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 200, 100, 75, 200, 150, 10, 100);
+    
+    const inimigoSegundo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 500);
 
     inimigos.push(inimigo);
     inimigos.push(inimigoGrande);
     inimigos.push(inimigoVoador);
+    inimigos.push(inimigoSegundo);
   }
 
-  keyPressed(key) {
-    if (key == "ArrowUp") {
-      personagem.pula();
-    }
+  keyPressed(key){
+  if(!this.fimDeJogo && key === 'ArrowUp'){
+    if(personagem.pula());
+  } else if(this.fimDeJogo && key === 'Enter'){
+    window.location.reload();
   }
+}
 
 
   draw() {
@@ -50,16 +56,43 @@ class Jogo {
       }
       inimigo.velocidade = parseInt(random(10, 30));
     }
-
+    
+    const inimigo2 = inimigos[3];
+    const inimigoVisivel2 = inimigo2.x < -inimigo2.largura;
+    inimigo2.velocidade = parseInt(random(5, 25));
+    inimigo2.delay = 1500;
+    inimigo2.exibe();
+    inimigo2.move();
 
     if (personagem.estaColidindo(inimigo)) {
       vida.perdeVida();
       personagem.tornarInvencivel()
       if (vida.vidas === 0) {
-        image(imagemGameOver, width / 2 - 200, height / 2 - 10);
-        somDoJogo.stop();
+        gameOver(this)
+        noLoop();
+      }
+    }
+
+    if (personagem.estaColidindo(inimigo2)) {
+      vida.perdeVida();
+      personagem.tornarInvencivel()
+      if (vida.vidas === 0) {
+        gameOver(this)
         noLoop();
       }
     }
   }
+}
+
+function gameOver(that) {  
+  background('rgba(0%,0%,0%,.80)');
+  fill("fff");
+  image(imagemGameOver, width / 2 - 412 / 2, height / 2 - 78 / 2);
+  somDoJogo.stop()
+  somMorreu.play();
+  that.fimDeJogo = true;
+  textAlign(CENTER)
+  textSize(32);
+  text("Press ENTER to play agaiN", width / 2, height/2+150 )   
+  
 }
