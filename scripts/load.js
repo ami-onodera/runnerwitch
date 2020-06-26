@@ -1,6 +1,17 @@
 function preload() {
-  imagemCenario = loadImage('imagens/cenario/floresta.png');
-  imagemPersonagem = loadImage('imagens/personagem/correndo.png');
+  imagemCenario = loadImage('imagens/cenario/florestamagica.png');
+  
+   // Cenarios Paralax
+      imagemCena_1 = loadImage('imagens/cenario/paralax/layer1.png');
+      imagemCena_2 = loadImage('imagens/cenario/paralax/layer2.png');
+      imagemCena_3 = loadImage('imagens/cenario/paralax/layer3.png');
+      imagemCena_4 = loadImage('imagens/cenario/paralax/layer4.png');
+      imagemCena_5 = loadImage('imagens/cenario/paralax/layer5.png');
+      imagemCena_6 = loadImage('imagens/cenario/paralax/layer5-2.png');
+  //fim cenario paralax
+  
+  
+  imagemPersonagem = loadImage('imagens/personagem/personagem.png');
   imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
   imagemInimigoGrande = loadImage('imagens/inimigos/troll.png');
   imagemInimigoVoador = loadImage('imagens/inimigos/gotinha-voadora.png');

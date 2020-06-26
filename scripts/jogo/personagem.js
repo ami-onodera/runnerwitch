@@ -48,14 +48,14 @@ class Personagem extends Animacao {
       return false;
     }
 
-    const precisao = .9;
+    const precisao = 0.7;
     
     // noFill();
-    // rect(this.x, 
+    // circle(this.x, 
     //   this.y, 
     //   this.largura * precisao, 
     //   this.altura * precisao)
-    // rect(inimigo.x, 
+    // circle(inimigo.x, 
     //   inimigo.y, 
     //   inimigo.largura * precisao, 
     //   inimigo.altura * precisao)
