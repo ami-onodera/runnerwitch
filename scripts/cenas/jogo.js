@@ -27,9 +27,9 @@ class Jogo {
     const inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 100);
     const inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 200, 100, 75, 200, 150, 10, 100);
     
-    const inimigoSegundo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 500);
-    const inimigoTerceiro = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 3000);
-    const inimigoQuarto = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 300, 100, 75, 200, 150, 10, 100);
+    const inimigoSegundo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 2500);
+    const inimigoTerceiro = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 10000);
+    const inimigoQuarto = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 400, 100, 75, 200, 150, 10, 20000);
 
     inimigos.push(inimigo);
     inimigos.push(inimigoGrande);
@@ -86,27 +86,27 @@ class Jogo {
       inimigo.velocidade = parseInt(random(10, 30));
     }
     
-    const inimigo2 = inimigos[3];
+    const inimigo2 = inimigos[3]; // poring 2
     const inimigoVisivel2 = inimigo2.x < -inimigo2.largura;
     
     inimigo2.velocidade = parseInt(random(5, 25));
-    inimigo2.delay = 1500;
+    inimigo2.delay = 10000;
     inimigo2.exibe();
     inimigo2.move();
     
-    const inimigo3 = inimigos[4];
+    const inimigo3 = inimigos[4]; // troll 2
     const inimigoVisivel3 = inimigo3.x < -inimigo3.largura;
     
-    inimigo3.velocidade = parseInt(random(15, 35));
-    inimigo3.delay = 10000;
+    inimigo3.velocidade = parseInt(random(20, 35));
+    inimigo3.delay = 30000;
     inimigo3.exibe();
     inimigo3.move();
     
-    const inimigo4 = inimigos[5];
+    const inimigo4 = inimigos[5]; // voador 2
     const inimigoVisivel4 = inimigo4.x < -inimigo4.largura;
     
-    inimigo4.velocidade = parseInt(random(15, 35));
-    inimigo4.delay = 20500;
+    inimigo4.velocidade = parseInt(random(5, 20));
+    inimigo4.delay = 60000;
     inimigo4.exibe();
     inimigo4.move();
 
@@ -175,6 +175,7 @@ function gameOver(that) {
   somDoJogo.stop()
   somMorreu.play();
   that.fimDeJogo = true;
+  personagem.stopBlinking()
   textAlign(CENTER)
   textSize(30);
   text("Press ENTER or CLICK to play agaiN", width / 2, height/2+150 )   
