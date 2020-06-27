@@ -14,6 +14,7 @@ class Animacao {
     
     this.isBlinking =false;
     this.blinkCount = 0;
+    
   }
 
   exibe() {
@@ -21,20 +22,11 @@ class Animacao {
 
     this.anima()
   }
-
-//   anima() {
-//     this.frameAtual++
-
-//     if (this.frameAtual >= this.matriz.length - 1) {
-//       this.frameAtual = 0
-//     }
-//   }
-  
-     
+    
   
    blink(){
         this.isBlinking = true;
-        if (frameCount%2 ===0 ){
+        if (frameCount%2 === 0 ){
             this.imagem.filter(INVERT);
             this.blinkCount++;
         }
@@ -48,6 +40,7 @@ class Animacao {
     }
   
   anima() {
+        // if (velocidade_atual === 0) return 0;
         this.frameAtual++;
 
         if (this.frameAtual >= this.matriz.length-1){

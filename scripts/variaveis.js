@@ -18,6 +18,9 @@ let botaoGerenciador;
 let imagemVida;
 let vida;
 
+let velocidade_inicial;
+let velocidade_atual;
+
 let somDoJogo;
 let somDoPulo;
 

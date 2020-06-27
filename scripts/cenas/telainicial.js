@@ -16,14 +16,15 @@ class TelaInicial {
   _texto(){
     textFont(fonteTelaInicial);
     textAlign(CENTER);
-    textSize(50);
-    fill(color('#740093'));
-    text('The adventures of', width / 2, height / 4);
+    
     textSize(80);
-    text('HipstA', width / 2, height/ 5*2)
+    fill(color('#740093'));
+    text('The adventures of amI', width / 2, height /3);
+    textSize(50);
+    text('In the Enchanted ForesT', width / 2, height/ 5*2)
     textSize(20);
     fill(color('#FFF'));
-    text('Use arrow up to jump!', width / 2, height/ 7*5)
+    text('Use the arrows to plaY', width / 2, height/ 7*5)
   }
   
   _botao(){

@@ -2,10 +2,16 @@ class Jogo {
   constructor() {
     this.inimigoAtual = 0;
     this.fimDeJogo = false;
+
+    this.velocidade_inicial = width / 10;
+    velocidade_atual = this.velocidade_inicial;
+
   }
 
   setup() {
-        
+
+    velocidade_inicial = this.velocidade_inicial;
+
     // Parallax
     cenario_1 = new Cenario(imagemCena_1, 1);
     cenario_2 = new Cenario(imagemCena_2, 1.5);
@@ -16,8 +22,8 @@ class Jogo {
 
 
     // end Parallax
-    
-    
+
+
     pontuacao = new Pontuacao();
     vida = new Vida(5, 5)
 
@@ -26,10 +32,10 @@ class Jogo {
     const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 100);
     const inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 100);
     const inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 200, 100, 75, 200, 150, 10, 100);
-    
-    const inimigoSegundo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 2500);
-    const inimigoTerceiro = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 10000);
-    const inimigoQuarto = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 400, 100, 75, 200, 150, 10, 20000);
+
+    const inimigoSegundo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10, 1000);
+    const inimigoTerceiro = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 15000);
+    const inimigoQuarto = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 400, 100, 75, 200, 150, 10, 2000);
 
     inimigos.push(inimigo);
     inimigos.push(inimigoGrande);
@@ -39,20 +45,25 @@ class Jogo {
     inimigos.push(inimigoQuarto);
   }
 
-  keyPressed(key){
-  if(!this.fimDeJogo && (key === 'ArrowUp' || key === 'click')){
-    if(personagem.pula());
-  } else if(this.fimDeJogo && (key === 'Enter' || key === 'click')){
-    window.location.reload();
+
+  keyPressed(key) {
+    if (!this.fimDeJogo && (key === 'ArrowUp' || key === 'click')) {
+      if (personagem.pula());
+    } else if (this.fimDeJogo && (key === 'Enter' || key === 'click')) {
+      window.location.reload();
+    }
   }
-}
 
 
   draw() {
     // cenario.exibe();
     // cenario.move();
 
-    
+    if (keyIsDown(LEFT_ARROW)) personagem.esquerda();
+    if (keyIsDown(RIGHT_ARROW)) personagem.direita();
+
+
+
     cenario_1.exibe();
     cenario_1.move();
     cenario_2.exibe();
@@ -63,8 +74,8 @@ class Jogo {
     cenario_4.move();
     cenario_5.exibe();
     cenario_5.move();
-    
-    
+
+
     vida.draw();
     pontuacao.exibe();
     pontuacao.adicionarPonto();
@@ -85,28 +96,28 @@ class Jogo {
       }
       inimigo.velocidade = parseInt(random(10, 30));
     }
-    
+
     const inimigo2 = inimigos[3]; // poring 2
     const inimigoVisivel2 = inimigo2.x < -inimigo2.largura;
-    
-    inimigo2.velocidade = parseInt(random(5, 25));
-    inimigo2.delay = 10000;
+
+    inimigo2.velocidade = parseInt(random(5, 35));
+    inimigo2.delay = 1000;
     inimigo2.exibe();
     inimigo2.move();
-    
+
     const inimigo3 = inimigos[4]; // troll 2
     const inimigoVisivel3 = inimigo3.x < -inimigo3.largura;
-    
+
     inimigo3.velocidade = parseInt(random(20, 35));
-    inimigo3.delay = 30000;
+    inimigo3.delay = 5000;
     inimigo3.exibe();
     inimigo3.move();
-    
+
     const inimigo4 = inimigos[5]; // voador 2
     const inimigoVisivel4 = inimigo4.x < -inimigo4.largura;
-    
-    inimigo4.velocidade = parseInt(random(5, 20));
-    inimigo4.delay = 60000;
+
+    inimigo4.velocidade = parseInt(random(5, 30));
+    inimigo4.delay = 10000;
     inimigo4.exibe();
     inimigo4.move();
 
@@ -114,7 +125,7 @@ class Jogo {
       vida.perdeVida();
       somColisao.play();
       personagem.tornarInvencivel();
-      
+
       if (vida.vidas === 0) {
         gameOver(this)
         noLoop();
@@ -125,52 +136,52 @@ class Jogo {
       vida.perdeVida();
       somColisao.play();
       personagem.tornarInvencivel();
-      
+
       if (vida.vidas === 0) {
         gameOver(this)
         noLoop();
       }
     }
-    
+
     if (personagem.estaColidindo(inimigo3)) {
       vida.perdeVida();
       somColisao.play();
       personagem.tornarInvencivel();
-      
+
       if (vida.vidas === 0) {
         gameOver(this)
         noLoop();
       }
     }
-    
+
     if (personagem.estaColidindo(inimigo4)) {
       vida.perdeVida();
       somColisao.play();
       personagem.tornarInvencivel();
-      
+
       if (vida.vidas === 0) {
         gameOver(this)
         noLoop();
       }
     }
-    
+
     cenario_6.exibe();
     cenario_6.move();
-    
+
   }
 }
 
-function gameOver(that) {  
+function gameOver(that) {
   background('rgba(0%,0%,0%,.80)');
   fill("fff");
-  
+
   textAlign(CENTER);
   textSize(30);
   text(`You scored ${parseInt(pontuacao.pontos)} PointS`,
-          width / 2,
-          height / 2 -80
-        );
-  
+    width / 2,
+    height / 2 - 80
+  );
+
   image(imagemGameOver, width / 2 - 412 / 2, height / 2 - 78 / 2);
   somDoJogo.stop()
   somMorreu.play();
@@ -178,6 +189,6 @@ function gameOver(that) {
   personagem.stopBlinking()
   textAlign(CENTER)
   textSize(30);
-  text("Press ENTER or CLICK to play agaiN", width / 2, height/2+150 )   
-  
+  text("Press ENTER or CLICK to play agaiN", width / 2, height / 2 + 150)
+
 }

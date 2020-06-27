@@ -4,11 +4,14 @@ class Personagem extends Animacao {
     this.imagem = imagem;
 
     this.frameAtual = 0;
+    this.veloc_y = 0;
 
     this.variacaoY = variacaoY;
 
     this.yInicial = height - this.altura - this.variacaoY;
+    
     this.y = this.yInicial;
+    this.veloc_x = width / 100;
 
     this.velocidadeDoPulo = 0;
     this.gravidade = 3;
@@ -34,6 +37,18 @@ class Personagem extends Animacao {
       this.qntPulos = 2;
     }
   }
+  
+  direita() {
+    if (velocidade_atual > 0)
+      if (this.x < (width - this.x))
+        this.x += this.veloc_x;
+  }
+
+  esquerda() {
+    if (velocidade_atual > 0)
+      if (this.x > 0)
+        this.x -= this.veloc_x;
+  }
 
   tornarInvencivel() {
     this.invencivel = true;
@@ -41,7 +56,7 @@ class Personagem extends Animacao {
     setTimeout(() => {
       this.invencivel = false
       this.stopBlinking()
-    }, 1500)
+    }, 2000)
   }
   
   
