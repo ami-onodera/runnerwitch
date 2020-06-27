@@ -16,6 +16,10 @@ function keyPressed() {
   jogo.keyPressed(key);
 }
 
+function mouseClicked(event) {
+  jogo.keyPressed('click');
+}
+
 function draw() {
   cenas[cenaAtual].draw();
 }

@@ -40,9 +40,9 @@ class Jogo {
   }
 
   keyPressed(key){
-  if(!this.fimDeJogo && key === 'ArrowUp'){
+  if(!this.fimDeJogo && (key === 'ArrowUp' || key === 'click')){
     if(personagem.pula());
-  } else if(this.fimDeJogo && key === 'Enter'){
+  } else if(this.fimDeJogo && (key === 'Enter' || key === 'click')){
     window.location.reload();
   }
 }
@@ -177,6 +177,6 @@ function gameOver(that) {
   that.fimDeJogo = true;
   textAlign(CENTER)
   textSize(30);
-  text("Press ENTER to play agaiN", width / 2, height/2+150 )   
+  text("Press ENTER or CLICK to play agaiN", width / 2, height/2+150 )   
   
 }
