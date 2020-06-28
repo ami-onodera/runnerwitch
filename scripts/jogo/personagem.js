@@ -40,7 +40,8 @@ class Personagem extends Animacao {
   
   direita() {
     if (velocidade_atual > 0)
-      if (this.x < (width - this.x))
+      // if (this.x < (width - this.x))
+      if (this.x < width)
         this.x += this.veloc_x;
   }
 
