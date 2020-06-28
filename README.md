@@ -2,7 +2,7 @@
 Play here: https://ami-onodera.github.io/runnerwitch
 <br>
 ## Story
-The little witch Ami is got lost in the Enchanted Forest! It's getting dark and some evil creatures started appearing. How long can you help little Ami to run from all the enemies?
+The little witch Ami got lost in the Enchanted Forest! It's getting dark and some evil creatures started appearing. How long can you help the little witch to run from all the enemies?
 <br>
 ## Controls
 Playing is very simple:
@@ -10,13 +10,13 @@ Playing is very simple:
 ```
 Arrow Up/Click: Jump
 Arrow Right: Walk forward
-Arrow Left: Walk back
+Arrow Left: Walk backwards
 2x Arrow Up or 2x Click: Double Jump
 Arrow Left/Right while jumping: Dash
 ```
 ## Whitchy Powers
 * The little witch Ami can run back and forth, jump, double-jump and dash while jumping.
-* If she gets hit, the witch Ami will activate her super witchy powers and become invincible for 2 seconds!
+* If she gets hit, the witch will activate her **super** witchy powers and become invincible for 2 seconds!
 
 ## Built with
 This endless runner game was made 100% in JavaScript, using P5.js. 
