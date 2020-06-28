@@ -179,16 +179,17 @@ function gameOver(that) {
   textSize(30);
   text(`You scored ${parseInt(pontuacao.pontos)} PointS`,
     width / 2,
-    height / 2 - 80
+    height / 3 - 50
   );
 
-  image(imagemGameOver, width / 2 - 412 / 2, height / 2 - 78 / 2);
+  image(imagemGameOver, width / 2 - 412 / 2, height / 3 - 68 / 2);
+  image(imagemPersonagemMorta,width / 2 - 250 / 2, height / 2 - 58 / 2);
   somDoJogo.stop()
   somMorreu.play();
   that.fimDeJogo = true;
   personagem.stopBlinking()
   textAlign(CENTER)
   textSize(30);
-  text("Press ENTER or CLICK to play agaiN", width / 2, height / 2 + 150)
+  text("Press ENTER or CLICK to play agaiN", width / 2, height / 2 + 220)
 
 }

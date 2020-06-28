@@ -12,6 +12,8 @@ function preload() {
   
   
   imagemPersonagem = loadImage('imagens/personagem/personagem.png');
+  imagemPersonagemMorta = loadImage('imagens/personagem/personagem-morta.png');
+  
   imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
   imagemInimigoGrande = loadImage('imagens/inimigos/troll.png');
   imagemInimigoVoador = loadImage('imagens/inimigos/gotinha-voadora.png');
