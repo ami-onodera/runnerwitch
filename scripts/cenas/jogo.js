@@ -47,9 +47,9 @@ class Jogo {
 
 
   keyPressed(key) {
-    if (!this.fimDeJogo && (key === 'ArrowUp' || key === 'click')) {
+    if (!this.fimDeJogo && (key === 'ArrowUp' || key === 'click' || key === 'touch')) {
       if (personagem.pula());
-    } else if (this.fimDeJogo && (key === 'Enter' || key === 'click')) {
+    } else if (this.fimDeJogo && (key === 'Enter' || key === 'click' || key === 'touch')) {
       window.location.reload();
     }
   }

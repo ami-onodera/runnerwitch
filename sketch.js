@@ -20,6 +20,11 @@ function mouseClicked(event) {
   jogo.keyPressed('click');
 }
 
+function touchStarted(event) {
+  jogo.keyPressed('touch');
+  // return false;
+}
+
 
 function draw() {
   cenas[cenaAtual].draw();
